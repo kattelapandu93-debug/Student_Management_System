@@ -27,7 +27,3 @@ The application allows managing student and teacher records through a simple men
 - Git & GitHub
 
 ---
-
-## 🗄️ Database Structure
-
-### Database Name
