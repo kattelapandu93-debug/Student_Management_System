@@ -18,14 +18,14 @@ class Student {
             int roll = sc.nextInt();
             sc.nextLine();
 
-            Connection con = DBConnection.getConnection();
+            Connection con = DBConnection.getConnection(); // get connection
             String sql = "INSERT INTO student VALUES (?, ?)";
 
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql);// create prepared statement
             ps.setInt(1, roll);
             ps.setString(2, name);
 
-            ps.executeUpdate();
+            ps.executeUpdate();// execute query
             con.close();
 
             System.out.println("Student stored in database!\n");
@@ -39,10 +39,10 @@ class Student {
         try {
             Connection con = DBConnection.getConnection();
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM student");
+            ResultSet rs = st.executeQuery("SELECT * FROM student");// execute query
 
             System.out.println("RollNo\tName");
-            while (rs.next()) {
+            while (rs.next()) {// process result set  
                 System.out.println(rs.getInt(1) + "\t" + rs.getString(2));
             }
 

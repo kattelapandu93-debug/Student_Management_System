@@ -11,15 +11,17 @@ class Teacher {
 
     public void add() {
         try {
-            System.out.print("Enter Teacher Name: ");
-            String name = sc.nextLine();
 
             System.out.print("Enter Subject ID: ");
             int id = sc.nextInt();
+
+            System.out.print("Enter Teacher Name: ");
+            String name = sc.nextLine();
+
             sc.nextLine();
 
             Connection con = DBConnection.getConnection();
-            String sql = "INSERT INTO teacher VALUES (?, ?)";
+            String sql = "INSERT INTO teacher(subject_id , name) VALUES (?, ?)";
 
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
