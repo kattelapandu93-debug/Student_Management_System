@@ -14,24 +14,18 @@ class Teacher {
 
             System.out.print("Enter Subject ID: ");
             int id = sc.nextInt();
-            sc.nextLine();
 
             System.out.print("Enter Teacher Name: ");
             String name = sc.nextLine();
 
-             System.out.print("Enter Subject Name: ");
-            String sub = sc.nextLine();
-
-           // sc.nextLine();
+            sc.nextLine();
 
             Connection con = DBConnection.getConnection();
-            String sql = "INSERT INTO teacher(subject_id , name , Subject) VALUES (?, ?,?)";
+            String sql = "INSERT INTO teacher(subject_id , name) VALUES (?, ?)";
 
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.setString(2, name);
-             ps.setString(3, sub);
-
 
             ps.executeUpdate();
             con.close();
@@ -49,9 +43,9 @@ class Teacher {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM teacher");
 
-            System.out.println("SubjectID\tName\t\tSubject");
+            System.out.println("SubjectID\tName");
             while (rs.next()) {
-                System.out.println(rs.getInt(1) + "\t\t" + rs.getString(2)+"\t\t"+rs.getString(3));
+                System.out.println(rs.getInt(1) + "\t\t" + rs.getString(2));
             }
 
             con.close();
