@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="loginView" class="login">
+  <form id="loginForm">
+    <h1>Student Management System</h1>
+    <label>Login ID <input id="loginId" autocomplete="username" required></label>
+    <label>Password <input id="loginPw" type="password" autocomplete="current-password" required></label>
+    <p id="loginErr" class="err" role="alert" hidden></p>
+    <button class="btn primary" type="submit">Log in</button>
+  </form>
+</section>
+
+<div id="appView" hidden>
+  <header class="top">
+    <h1>Student Management System</h1>
+    <button id="logout" class="btn">Log out</button>
+  </header>
+  <main>
+    <section class="stats" aria-label="Summary">
+      <div><b id="sStudents">0</b><span>Students</span></div>
+      <div><b id="sTeachers">0</b><span>Teachers</span></div>
+      <div><b id="sSubjects">0</b><span>Subjects</span></div>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tabStudents" aria-selected="true">Students</button>
+      <button role="tab" id="tabTeachers" aria-selected="false">Teachers</button>
+    </div>
+
+    <section class="tools">
+      <input id="search" type="search" placeholder="Search" aria-label="Search">
+      <button id="addBtn" class="btn primary">Add student</button>
+    </section>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr id="head"></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p id="empty" class="empty" hidden></p>
+    </div>
+
+    <nav class="pager" aria-label="Pages">
+      <button id="prev" class="btn">Previous</button>
+      <span id="pageInfo"></span>
+      <button id="next" class="btn">Next</button>
+    </nav>
+  </main>
+</div>
+
+<dialog id="dlg">
+  <form id="form" method="dialog">
+    <h2 id="dlgTitle"></h2>
+    <div id="fields"></div>
+    <p id="formErr" class="err" role="alert" hidden></p>
+    <div class="actions">
+      <button type="button" id="cancel" class="btn">Cancel</button>
+      <button type="submit" class="btn primary">Save</button>
+    </div>
+  </form>
+</dialog>
+<div id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
